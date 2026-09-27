@@ -1,0 +1,15 @@
+[
+  "NDVI",
+  "MNDWI",
+  "EVI",
+  "SAR_change",
+  "water_change",
+  "soil_moisture",
+  "NDVI_trend",
+  "MNDWI_trend",
+  "EVI_trend",
+  "NDVI_anomaly",
+  "MNDWI_anomaly",
+  "persistence_of_decline",
+  "multi_indicator_decline"
+]

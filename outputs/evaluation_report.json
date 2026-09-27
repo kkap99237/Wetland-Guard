@@ -1,0 +1,74 @@
+{
+  "model_name": "RandomForestClassifier",
+  "n_estimators": 200,
+  "class_weight": "balanced",
+  "training_date": "2026-09-06T21:28:21.847763",
+  "n_features": 13,
+  "feature_columns": [
+    "NDVI",
+    "MNDWI",
+    "EVI",
+    "SAR_change",
+    "water_change",
+    "soil_moisture",
+    "NDVI_trend",
+    "MNDWI_trend",
+    "EVI_trend",
+    "NDVI_anomaly",
+    "MNDWI_anomaly",
+    "persistence_of_decline",
+    "multi_indicator_decline"
+  ],
+  "n_wetlands": 15,
+  "total_observations": 720,
+  "date_range": "2021-01-01 to 2024-12-01",
+  "train_samples": 503,
+  "val_samples": 109,
+  "test_samples": 108,
+  "random_forest_metrics": {
+    "accuracy": 0.9907407407407407,
+    "precision": 0.96,
+    "recall": 1.0,
+    "f1_score": 0.9795918367346939,
+    "roc_auc": 0.9995039682539683,
+    "confusion_matrix": [
+      [
+        83,
+        1
+      ],
+      [
+        0,
+        24
+      ]
+    ]
+  },
+  "logistic_baseline_metrics": {
+    "accuracy": 0.9722222222222222,
+    "precision": 0.8888888888888888,
+    "recall": 1.0,
+    "f1_score": 0.9411764705882353,
+    "roc_auc": 0.990079365079365,
+    "confusion_matrix": [
+      [
+        81,
+        3
+      ],
+      [
+        0,
+        24
+      ]
+    ]
+  },
+  "label_rationale": {
+    "label_name": "risk_event_label",
+    "type": "Retrospective Weak-Supervision Heuristic",
+    "positive_class": "Concerning deterioration pattern detected (1)",
+    "negative_class": "Stable or normal seasonal fluctuation (0)",
+    "criteria": [
+      "Condition 1: Multi-indicator decline persisting across >= 2 consecutive time periods.",
+      "Condition 2: Concurrently severe standardized anomalies in MNDWI (<-1.2 sigma) and NDVI (<-1.0 sigma).",
+      "Condition 3: Water extent decline > 25% accompanied by SAR backscatter loss (> 1.0 dB reduction)."
+    ],
+    "scientific_disclaimer": "These labels serve strictly as decision-support screening targets. They reflect statistical and multi-sensor deviations from baseline, not legal adjudication."
+  }
+}
